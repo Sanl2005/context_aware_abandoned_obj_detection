@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  detected_object: one
+  event_type: MyString
+  details: MyText
+  occurred_at: 2026-01-26 18:55:37
+
+two:
+  detected_object: two
+  event_type: MyString
+  details: MyText
+  occurred_at: 2026-01-26 18:55:37

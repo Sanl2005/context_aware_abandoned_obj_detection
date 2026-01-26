@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  track_id: MyString
+  object_type: MyString
+  confidence: 1.5
+  bbox: MyText
+  first_seen_at: 2026-01-26 18:55:21
+  last_seen_at: 2026-01-26 18:55:21
+  status: MyString
+  camera_source: one
+
+two:
+  track_id: MyString
+  object_type: MyString
+  confidence: 1.5
+  bbox: MyText
+  first_seen_at: 2026-01-26 18:55:21
+  last_seen_at: 2026-01-26 18:55:21
+  status: MyString
+  camera_source: two

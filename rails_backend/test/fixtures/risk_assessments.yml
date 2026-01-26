@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  detected_object: one
+  risk_score: 1.5
+  risk_level: MyString
+  reason: MyText
+  assessed_at: 2026-01-26 18:55:55
+
+two:
+  detected_object: two
+  risk_score: 1.5
+  risk_level: MyString
+  reason: MyText
+  assessed_at: 2026-01-26 18:55:55

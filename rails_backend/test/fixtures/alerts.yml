@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  detected_object: one
+  message: MyText
+  severity: MyString
+  is_sent: false
+  sent_at: 2026-01-26 18:56:05
+
+two:
+  detected_object: two
+  message: MyText
+  severity: MyString
+  is_sent: false
+  sent_at: 2026-01-26 18:56:05
