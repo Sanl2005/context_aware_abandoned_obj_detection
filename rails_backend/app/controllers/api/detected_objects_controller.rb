@@ -13,6 +13,22 @@ module Api
       detected_object = DetectedObject.new(detected_object_params)
 
       if detected_object.save
+        # Auto create event log
+        ObjectEvent.create!(
+          detected_object: detected_object,
+          event_type: "detected",
+          details: "Detected from ML Service",
+          occurred_at: Time.current
+        )
+
+        # Auto create risk assessment
+        RiskAssessment.create!(
+          detected_object: detected_object,
+          risk_score: detected_object.confidence,
+          risk_level: (detected_object.confidence.to_f >= 0.7 ? "high" : "low"),
+          reason: "Auto generated from confidence score",
+          assessed_at: Time.current
+        )
         # Auto create alert if abandoned
         if detected_object.status == "abandoned"
           Alert.create!(
