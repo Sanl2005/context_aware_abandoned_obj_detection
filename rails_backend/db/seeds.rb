@@ -7,3 +7,29 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+cam = CameraSource.find_or_create_by!(
+  name: "Gate Camera",
+  location: "Entrance",
+  stream_url: "rtsp://example.com/live",
+  is_active: true
+)
+
+obj = DetectedObject.find_or_create_by!(
+  track_id: "T001",
+  object_type: "bag",
+  confidence: 0.91,
+  bbox: "[120,80,240,190]",
+  first_seen_at: Time.now - 2.minutes,
+  last_seen_at: Time.now,
+  status: "abandoned",
+  camera_source: cam
+)
+
+Alert.find_or_create_by!(
+  detected_object: obj,
+  message: "Abandoned bag detected near entrance",
+  severity: "high",
+  is_sent: false
+)
+
