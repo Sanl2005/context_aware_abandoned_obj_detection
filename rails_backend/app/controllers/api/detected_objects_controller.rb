@@ -1,5 +1,6 @@
 module Api
   class DetectedObjectsController < ApplicationController
+    skip_before_action :authorize_request, only: [:index, :show]
     def index
       render json: DetectedObject.order(created_at: :desc)
     end

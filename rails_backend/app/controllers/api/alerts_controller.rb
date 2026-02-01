@@ -1,5 +1,6 @@
 module Api
   class AlertsController < ApplicationController
+    skip_before_action :authorize_request, only: [:index, :show]
     def index
       render json: Alert.order(created_at: :desc)
     end

@@ -1,5 +1,6 @@
 module Api
   class RiskAssessmentsController < ApplicationController
+    skip_before_action :authorize_request, only: [:index, :show]
     def index
       render json: RiskAssessment.order(created_at: :desc)
     end

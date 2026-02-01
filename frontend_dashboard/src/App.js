@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./App.css";
 
-const API = "http://127.0.0.1:3000/api";
+const API = "/api";
 
 function App() {
   const [objects, setObjects] = useState([]);
@@ -29,38 +30,101 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>🚨 Abandoned Object Detection Dashboard</h1>
+    <div className="dashboard-container">
+      <header className="dashboard-header">
+        <div className="dashboard-title">
+          <span role="img" aria-label="siren">🚨</span> SentinelEye Dashboard
+        </div>
+        <div className="live-indicator">
+          <div className="pulse"></div> Live Monitor
+        </div>
+      </header>
 
-      <h2>📌 Detected Objects</h2>
-      <ul>
-        {objects.map((obj) => (
-          <li key={obj.id}>
-            <b>{obj.object_type}</b> | Confidence: {obj.confidence} | Status:{" "}
-            {obj.status} | Camera ID: {obj.camera_source_id}
-          </li>
-        ))}
-      </ul>
+      <div className="dashboard-grid">
+        {/* Main Feed: Detected Objects */}
+        <section>
+          <h2 className="section-header">
+            <span role="img" aria-label="pin">📌</span> Real-time Detections
+          </h2>
+          {objects.length === 0 ? (
+            <div className="empty-state">No objects detected recently. System scanning...</div>
+          ) : (
+            <div className="card-grid">
+              {objects.map((obj) => (
+                <div className="card" key={obj.id}>
+                  <div className="obj-card-header">
+                    <span className="obj-type">{obj.object_type}</span>
+                    <span className={`badge ${obj.status === 'abandoned' ? 'abandoned' : 'detected'}`}>
+                      {obj.status}
+                    </span>
+                  </div>
+                  <div className="detail-row">
+                    <span>Confidence</span>
+                    <span className="detail-val">{(obj.confidence * 100).toFixed(1)}%</span>
+                  </div>
+                  <div className="detail-row">
+                    <span>Camera ID</span>
+                    <span className="detail-val">CAM-{obj.camera_source_id}</span>
+                  </div>
+                  <div className="detail-row">
+                    <span>Last Seen</span>
+                    <span className="detail-val">{new Date(obj.last_seen_at || Date.now()).toLocaleTimeString()}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
 
-      <h2>⚠ Alerts</h2>
-      <ul>
-        {alerts.map((a) => (
-          <li key={a.id}>
-            <b>{a.severity.toUpperCase()}</b> - {a.message} (Object ID:{" "}
-            {a.detected_object_id})
-          </li>
-        ))}
-      </ul>
+        {/* Sidebar: Alerts & Risks */}
+        <aside className="list-container">
+          {/* Alerts Section */}
+          <div>
+            <h2 className="section-header">
+              <span role="img" aria-label="warning">⚠</span> Active Alerts
+            </h2>
+            {alerts.length === 0 ? (
+              <div className="empty-state">No active alerts.</div>
+            ) : (
+              alerts.map((a) => (
+                <div className="alert-item" key={a.id}>
+                  <div className="alert-title">
+                    <span>{a.severity.toUpperCase()} ALERT</span>
+                    <small>Obj #{a.detected_object_id}</small>
+                  </div>
+                  <div className="alert-msg">{a.message}</div>
+                </div>
+              ))
+            )}
+          </div>
 
-      <h2>📊 Risk Assessments</h2>
-      <ul>
-        {risks.map((r) => (
-          <li key={r.id}>
-            Risk: <b>{r.risk_level}</b> | Score: {r.risk_score} | Reason:{" "}
-            {r.reason}
-          </li>
-        ))}
-      </ul>
+          {/* Risk Section */}
+          <div style={{ marginTop: '2rem' }}>
+            <h2 className="section-header">
+              <span role="img" aria-label="chart">📊</span> Risk Analysis
+            </h2>
+            {risks.length === 0 ? (
+              <div className="empty-state">No risk assessments available.</div>
+            ) : (
+              risks.map((r) => (
+                <div className="risk-item" key={r.id}>
+                  <div>
+                    <div className="detail-val" style={{ marginBottom: '0.25rem' }}>
+                      {r.reason}
+                    </div>
+                    <small className="text-secondary">
+                      {new Date(r.assessed_at || Date.now()).toLocaleTimeString()}
+                    </small>
+                  </div>
+                  <div className={`risk-score ${r.risk_level === 'high' ? 'risk-high' : 'risk-low'}`}>
+                    {r.risk_score}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }
