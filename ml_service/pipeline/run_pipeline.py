@@ -19,7 +19,8 @@ def main():
         detections = detector.detect(frame)
 
         for d in detections:
-            if d["class_name"] in ["person", "bag", "backpack", "suitcase"]:
+            print(f"[DEBUG] Detected: {d['class_name']} ({d['confidence']:.2f})")
+            if d["class_name"] in ["person", "handbag", "backpack", "suitcase","cell phone","teddy bear","chair","dining table","tv","remote","keyboard","mouse","book","laptop","water bottle","bottle"]:
                 x1, y1, x2, y2 = map(int, d["bbox"])
                 label = f'{d["class_name"]} {d["confidence"]:.2f}'
 
