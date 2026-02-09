@@ -33,7 +33,7 @@ def main():
 
             if d["class_name"] in [
                 "person", "handbag", "backpack", "suitcase",
-                "cell phone", "teddy bear", "chair", "dining table",
+                "cell phone", "teddy bear", "chair",
                 "tv", "remote", "keyboard", "mouse", "book",
                 "laptop", "water bottle", "bottle"
             ]:
