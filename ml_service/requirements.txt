@@ -5,3 +5,7 @@ numpy
 ultralytics
 torch
 requests
+redis
+shapely
+psycopg2-binary
+SQLAlchemy

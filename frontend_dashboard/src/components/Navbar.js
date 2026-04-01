@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <div style={styles.nav}>
-      <h2>🚨 Abandoned Object Detection</h2>
+      <h2>🚨 Smart Look</h2>
       <button onClick={logout} style={styles.btn}>Logout</button>
     </div>
   );

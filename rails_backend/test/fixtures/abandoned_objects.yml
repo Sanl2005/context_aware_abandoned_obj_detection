@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tracking_id: MyString
+  camera_source: one
+  person_id: MyString
+  threat_level: MyString
+  abandonment_score: 1.5
+  location_type: MyString
+  detected_at: 2026-02-21 13:25:07
+  expires_at: 2026-02-21 13:25:07
+  is_permanent: false
+
+two:
+  tracking_id: MyString
+  camera_source: two
+  person_id: MyString
+  threat_level: MyString
+  abandonment_score: 1.5
+  location_type: MyString
+  detected_at: 2026-02-21 13:25:07
+  expires_at: 2026-02-21 13:25:07
+  is_permanent: false

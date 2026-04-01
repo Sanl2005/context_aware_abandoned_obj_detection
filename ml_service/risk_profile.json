@@ -1,0 +1,47 @@
+{
+    "PUBLIC_OPEN_CROWDED": {
+        "distance_weight": 0.1,
+        "interaction_gap_weight": 0.2,
+        "stationary_duration_weight": 0.4,
+        "owner_reid_weight": 0.5,
+        "zone_risk_weight": 1.0,
+        "crowd_density_weight": 0.8,
+        "behavior_weight": 0.7,
+        "occlusion_weight": 0.3,
+        "location_context_score": 1.0,
+        "threat_type_weight": 0.6,
+        "alert_threshold": 0.85,
+        "stationary_time_threshold": 120,
+        "crowd_density_threshold": 15
+    },
+    "PUBLIC_REMOTE_AREA": {
+        "distance_weight": 0.3,
+        "interaction_gap_weight": 0.4,
+        "stationary_duration_weight": 0.7,
+        "owner_reid_weight": 0.8,
+        "zone_risk_weight": 1.2,
+        "crowd_density_weight": 0.3,
+        "behavior_weight": 0.9,
+        "occlusion_weight": 0.6,
+        "location_context_score": 1.2,
+        "threat_type_weight": 0.7,
+        "alert_threshold": 0.65,
+        "stationary_time_threshold": 60,
+        "crowd_density_threshold": 5
+    },
+    "SEMI_RESTRICTED_ZONE": {
+        "distance_weight": 0.2,
+        "interaction_gap_weight": 0.3,
+        "stationary_duration_weight": 0.9,
+        "owner_reid_weight": 1.0,
+        "zone_risk_weight": 1.5,
+        "crowd_density_weight": 0.2,
+        "behavior_weight": 1.0,
+        "occlusion_weight": 0.8,
+        "location_context_score": 1.5,
+        "threat_type_weight": 0.9,
+        "alert_threshold": 0.50,
+        "stationary_time_threshold": 30,
+        "crowd_density_threshold": 2
+    }
+}

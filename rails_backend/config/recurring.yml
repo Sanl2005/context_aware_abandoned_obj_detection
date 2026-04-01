@@ -1,0 +1,8 @@
+production:
+  cleanup_abandoned_objects:
+    class: CleanupAbandonedObjectsJob
+    schedule: "Every 10 minutes"
+development:
+  cleanup_abandoned_objects:
+    class: CleanupAbandonedObjectsJob
+    schedule: "Every 10 minutes"

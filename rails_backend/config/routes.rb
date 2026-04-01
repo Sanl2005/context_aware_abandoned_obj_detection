@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resources :alerts, only: [:index, :create, :show]
     resources :object_events, only: [:index, :show, :create]
     resources :risk_assessments, only: [:index, :show, :create]
+    post "ml_results", to: "ml_results#create"
+
+    resources :abandoned_objects, only: [:index, :show, :destroy] do
+      member do
+        patch :make_permanent
+      end
+    end
   end
 end
 

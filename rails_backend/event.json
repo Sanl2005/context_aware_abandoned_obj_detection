@@ -1,8 +1,0 @@
-{
-  "object_event": {
-    "detected_object_id": 4,
-    "event_type": "detected",
-    "details": "Detected in Gate Camera",
-    "occurred_at": "2026-01-26T20:00:00Z"
-  }
-}
