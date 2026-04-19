@@ -1,12 +1,12 @@
 # Context-Aware Abandoned Object Intelligence System
 
-🚨 **SentinelEye** - Real-time video monitoring with AI-powered object detection and abandonment alerts.
+ **SentinelEye** - Real-time video monitoring with AI-powered object detection and abandonment alerts.
 
 This system monitors video feeds to detect unattended objects and gradually estimates risk based on time, interaction, and context. It uses YOLOv8 for detection, Flask for processing, Ruby on Rails for API and persistence, and React for the dashboard.
 
 ---
 
-## 🛠 Prerequisites
+##  Prerequisites
 
 Before starting, ensure you have the following installed on your system (Windows, macOS, or Linux):
 
@@ -19,7 +19,7 @@ Before starting, ensure you have the following installed on your system (Windows
 
 ---
 
-## 💻 Setup Instructions (For Any System)
+##  Setup Instructions (For Any System)
 
 Follow these steps to configure and run the project locally.
 
@@ -58,7 +58,7 @@ npm install
 
 ---
 
-## 🚀 Running the Application
+##  Running the Application
 
 You need to run all three components simultaneously for the system to fully function.
 
@@ -94,7 +94,7 @@ Once everything is running, open your web browser and go to `http://localhost:30
 
 ---
 
-## 🔐 Dashboard Authentication
+##  Dashboard Authentication
 
 The dashboard is protected. You must log in to view the live feed and archives.
 
@@ -104,7 +104,7 @@ The dashboard is protected. You must log in to view the live feed and archives.
 
 ---
 
-## ✨ System Architecture
+##  System Architecture
 
 - **ML Service (Python/Flask)**: Handles real-time object detection using Ultralytics YOLOv8. Tracks object abandonment, captures images of alerts, and handles SOS notifications (Email/SMS).
 - **Rails Backend (Ruby on Rails)**: Serves as the central API, manages persistent storage using ActiveStorage (for images) and PostgreSQL, and handles real-time broadcasting via ActionCable.
@@ -112,7 +112,7 @@ The dashboard is protected. You must log in to view the live feed and archives.
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 For more in-depth technical details, check out:
 - [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) - System overview and architecture details
@@ -121,6 +121,6 @@ For more in-depth technical details, check out:
 
 ---
 
-## 📝 License
+##  License
 
 This project is for educational and surveillance demonstration purposes.
